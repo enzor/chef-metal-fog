@@ -319,7 +319,7 @@ module ChefMetalFog
               'allocated_at' => Time.now.to_i
             }
             machine_spec.location['key_name'] = bootstrap_options[:key_name] if bootstrap_options[:key_name]
-            %w(is_windows ssh_username sudo use_private_ip_for_ssh ssh_gateway).each do |key|
+            %w(is_windows ssh_username ssh_password sudo use_private_ip_for_ssh ssh_gateway).each do |key|
               machine_spec.location[key] = machine_options[key.to_sym] if machine_options[key.to_sym]
             end
             action_handler.performed_action "machine #{machine_spec.name} created as #{server.id} on #{driver_url}"
